@@ -1,4 +1,8 @@
-# 02 - GROUP BY and HAVING
+# GROUP BY and HAVING
+
+This section turns row-level data into department-level insight using COUNT, SUM, AVG, MIN, and MAX. Exercises progress from one aggregate to combined WHERE/GROUP BY/HAVING analyses.
+
+All scripts use the same `Employees` sample model and can be run independently.
 
 ## 📚 Topics Covered
 - GROUP BY clause

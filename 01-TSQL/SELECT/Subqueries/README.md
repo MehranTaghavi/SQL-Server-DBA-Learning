@@ -1,4 +1,6 @@
-# 03 - Subquery (زیرکوئری)
+# Subqueries
+
+Subqueries are useful when a result depends on another query, but they should remain readable and measurable. These exercises use the `Employees` sample model and progress from scalar expressions to correlated and EXISTS-based analysis.
 
 ## 📚 مباحث پوشش داده شده
 - Subquery ساده در WHERE

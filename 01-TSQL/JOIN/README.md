@@ -1,8 +1,8 @@
-# 04_Joins
+# JOIN
 
-Exercises covering SQL `JOIN` operations in T-SQL (SQL Server), building directly on the
-Subquery exercises in `03_subquery`. Every script is self-contained: it creates its own
-tables, inserts sample data, then runs the exercise query with comments explaining each step.
+These standalone exercises demonstrate how to combine related tables while preserving the intended row set. Start with INNER JOIN, compare it with LEFT JOIN, and finish with SELF JOIN for employee-manager relationships.
+
+Pay attention to unmatched rows and to the difference between putting a predicate in `ON` versus `WHERE`.
 
 ## Exercises
 
