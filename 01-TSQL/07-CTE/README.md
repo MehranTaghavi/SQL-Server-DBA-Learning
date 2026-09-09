@@ -21,6 +21,10 @@ The existing salary-gap example remains available as `01-salary-gap-with-cte.sql
 | `08-date-series-recursive.sql` | Recursive CTE | Generates every date from 2023-01-01 through 2023-01-10 |
 | `09-employee-hierarchy.sql` | Recursive hierarchy | Finds Reza Karimi's direct and indirect subordinates |
 | `10-subordinate-summary.sql` | Recursive CTE + aggregation | Counts subordinates and sums their salaries for every employee |
+| `11-window-functions-01-ranking.sql` | Window functions | ROW_NUMBER, RANK, DENSE_RANK |
+| `12-window-functions-02-top-by-department.sql` | Window functions | Top employee in each department using PARTITION BY |
+| `13-window-functions-03-lag.sql` | Window functions | Previous order amount with LAG |
+| `14-window-functions-04-running-total.sql` | Window functions | Running total with SUM OVER |
+| `15-window-functions-05-ntile-pagination.sql` | Window functions | NTILE and simple row-number pagination |
 
 Each exercise file contains the solution query. The recursive exercises use `OPTION (MAXRECURSION 100)` where a recursion limit is relevant.
-
