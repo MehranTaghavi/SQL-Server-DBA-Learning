@@ -1,6 +1,19 @@
-# Window Functions
+# Window Functions (T-SQL)
 
-This section is reserved for analytical functions that calculate across related rows without collapsing the result set: `ROW_NUMBER`, `RANK`, `DENSE_RANK`, `LAG`, `LEAD`, and running aggregates.
+This folder contains the **initial set of practical Window Functions exercises** for SQL Server.
 
-Each future exercise will include an expected ordering and a note about ties, because deterministic ordering is essential in production queries.
+## Included scripts
 
+- `window-functions-practice-01.sql`
+- `window-functions-practice-02.sql`
+
+## Topics covered
+
+- `ROW_NUMBER`, `RANK`, `DENSE_RANK`
+- `LAG`, `LEAD`
+- `SUM/AVG OVER (PARTITION BY ...)`
+- Running totals
+- `FIRST_VALUE`, `LAST_VALUE`
+- `PERCENT_RANK`, `CUME_DIST`, `NTILE`
+
+> Note: Queries assume example tables such as `Employees` and `Orders` exist in your practice database.
