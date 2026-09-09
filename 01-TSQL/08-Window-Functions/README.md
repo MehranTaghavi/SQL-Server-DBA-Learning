@@ -1,19 +1,20 @@
-# Window Functions (T-SQL)
+# Window Functions
 
-This folder contains the **initial set of practical Window Functions exercises** for SQL Server.
+These standalone exercises cover the basic ranking window functions:
+`ROW_NUMBER()`, `RANK()`, and `DENSE_RANK()`.
 
-## Included scripts
+They reuse the same sample database as the CTE exercises. Run
+`00-setup.sql` from the CTE folder once before these exercises if the
+`Departments`, `Employees`, and `Orders` tables don't already exist.
 
-- `window-functions-practice-01.sql`
-- `window-functions-practice-02.sql`
+## Exercises
 
-## Topics covered
+| File | Topic | What it covers |
+|------|-------|----------------|
+| `01-row-number-salary-ranking.sql` | ROW_NUMBER | Unique company-wide salary ranking across all employees |
+| `02-row-number-top-employee-per-department.sql` | ROW_NUMBER + PARTITION BY | Highest-paid employee in each department |
+| `03-rank-department-headcount.sql` | RANK | Departments ranked by employee headcount, showing how RANK() handles ties and leaves gaps |
+| `04-dense-rank-seniority-groups.sql` | DENSE_RANK | Employees grouped into seniority tiers by hire year, showing how DENSE_RANK() handles ties without gaps |
+| `05-row-number-vs-rank-vs-dense-rank.sql` | Comparison | ROW_NUMBER, RANK, and DENSE_RANK side by side on the same ordering |
 
-- `ROW_NUMBER`, `RANK`, `DENSE_RANK`
-- `LAG`, `LEAD`
-- `SUM/AVG OVER (PARTITION BY ...)`
-- Running totals
-- `FIRST_VALUE`, `LAST_VALUE`
-- `PERCENT_RANK`, `CUME_DIST`, `NTILE`
-
-> Note: Queries assume example tables such as `Employees` and `Orders` exist in your practice database.
+Each exercise file contains the solution query.
