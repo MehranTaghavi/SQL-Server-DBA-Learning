@@ -15,3 +15,4 @@
 
 - [۰۷ - CTE](./07-CTE)
 - [۰۸ - Window Functions](./08-Window-Functions)
+- [۰۹ - Stored Procedures](./09-Stored-Procedures)
