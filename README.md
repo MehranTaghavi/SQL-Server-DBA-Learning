@@ -8,7 +8,7 @@ This repository is a living learning portfolio by **Mehran Taghavi Afkham**. It 
 
 | Chapter | Focus | Status |
 | --- | --- | --- |
-| [01-TSQL](./01-TSQL) | Querying and T-SQL problem solving | In progress |
+| [01-TSQL](./01-TSQL) | Querying and T-SQL problem solving (see breakdown below) | In progress |
 | [02-Database-Fundamentals](./02-Database-Fundamentals) | Relational design and data integrity | Roadmap |
 | [03-Backup-Restore](./03-Backup-Restore) | Recovery models and restore strategy | Roadmap |
 | [04-Security](./04-Security) | Principals, permissions, and auditing | Roadmap |
@@ -20,6 +20,23 @@ This repository is a living learning portfolio by **Mehran Taghavi Afkham**. It 
 | [10-ETL-SSIS](./10-ETL-SSIS) | Reliable data movement and ETL design | Roadmap |
 | [11-SSDT](./11-SSDT) | Version-controlled database development | Roadmap |
 | [12-Projects](./12-Projects) | Portfolio projects that combine the skills | In progress |
+
+### Inside 01-TSQL
+
+The T-SQL chapter goes beyond basic querying and covers concepts commonly asked about in
+data-analyst and junior-DBA interviews:
+
+| Subfolder | Advanced concepts covered |
+| --- | --- |
+| [01-Introduction](./01-TSQL/01-Introduction) | Schema/key fundamentals, logical query processing order, type conversion |
+| [02-Sort-and-Filter](./01-TSQL/02-Sort-and-Filter) | Filtering, pattern matching (`LIKE`), `TOP` / `TOP PERCENT` |
+| [03-JOIN](./01-TSQL/03-JOIN) | Inner, left, right, full outer, self, and cross joins |
+| [04-Subqueries](./01-TSQL/04-Subqueries) | Correlated subqueries, `EXISTS`/`NOT EXISTS`, `ANY`/`ALL`, `CASE` expressions, multi-step analytical queries |
+| [05-Functions-and-GroupBy](./01-TSQL/05-Functions-and-GroupBy) | Aggregate functions, `GROUP BY`, `HAVING` |
+| [06-Modify-Data](./01-TSQL/06-Modify-Data) | `INSERT`/`UPDATE`/`DELETE`, `SELECT INTO`, `MERGE`, staging workflows |
+| [07-CTE](./01-TSQL/07-CTE) | Common Table Expressions, recursive CTEs, pagination, employee-hierarchy queries |
+| [08-Window-Functions](./01-TSQL/08-Window-Functions) | `ROW_NUMBER`, `RANK`, `DENSE_RANK`, `LAG`/`LEAD`, running totals, `NTILE` |
+| [09-Stored-Procedures](./01-TSQL/09-Stored-Procedures) | Parameterized procedures, output parameters, safe update patterns |
 
 ## How to use this repository
 
