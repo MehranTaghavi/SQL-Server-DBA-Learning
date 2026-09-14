@@ -1,5 +1,9 @@
 # SQL Server DBA Learning
 
+<p align="center">
+	<img src="./sql-server-dba-learning-poster.jpg" alt="SQL Server DBA Learning dashboard poster" width="100%">
+</p>
+
 > A practical, structured path from T-SQL fundamentals to production-grade SQL Server administration.
 
 This repository is a living learning portfolio by **Mehran Taghavi Afkham**. It combines runnable T-SQL exercises, DBA notes, operational checklists, and end-to-end projects. Every topic is organized so that a learner can start with the README, run the examples in SQL Server Management Studio, and then extend them with their own experiments.
