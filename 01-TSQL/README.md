@@ -16,3 +16,6 @@
 - [۰۷ - CTE](./07-CTE)
 - [۰۸ - Window Functions](./08-Window-Functions)
 - [۰۹ - Stored Procedures](./09-Stored-Procedures)
+## پروژه‌ی ترکیبی
+
+- [۱۲-Projects/online-store-analysis](../12-Projects/online-store-analysis) — یک پروژه‌ی کوچک و مستقل که مفاهیم `JOIN`، `Subqueries`، `CTE` و `Window Functions` (بخش‌های ۰۳، ۰۴، ۰۷ و ۰۸) را در قالب یک دیتابیس نمونه‌ی فروشگاه آنلاین و چند پرس‌وجوی تحلیلیِ کسب‌وکاری با هم ترکیب می‌کند.
