@@ -1,17 +1,3 @@
-# تمرین حرفه‌ای جدید — گزارش رشد فروش ماهانه
-
-> این تمرین ادامه‌ی `01` تا `08` در پوشه‌ی `08-Window-Functions` است و از همان
-> جدول‌های `Departments`, `Employees`, `Orders` (ساخته‌شده توسط `00-setup.sql`
-> در پوشه‌ی `07-CTE`) استفاده می‌کند. برخلاف تمرین‌های قبلی که روی داده‌ی
-> ردیفی کار می‌کردند، این تمرین ابتدا داده را **ماهانه تجمیع** می‌کند و سپس
-> روی نتیجه‌ی تجمیع‌شده از توابع پنجره‌ای استفاده می‌کند — دقیقاً الگویی که
-> در گزارش‌های واقعی فروش/BI به‌کار می‌رود.
-
----
-
-## فایل: `09-monthly-sales-growth-report.sql`
-
-```sql
 /* ============================================================
    Exercise 09 - Monthly Sales Growth Report (CTE + LAG + RANK)
    ============================================================
@@ -130,23 +116,3 @@ ORDER BY e.EmployeeID, m.SalesYear, m.SalesMonth;
 --   complete calendar of months per employee if "no order this
 --   month" should count as zero instead of being skipped).
 -- ------------------------------------------------------------
-```
-
----
-
-## به‌روزرسانی `README.md` پوشه‌ی `08-Window-Functions`
-
-این ردیف جدید را به انتهای جدول تمرین‌ها (بعد از ردیف `08`) اضافه کنید:
-
-```markdown
-| `09-monthly-sales-growth-report.sql` | CTE + GROUP BY + LAG + RANK | A realistic BI-style report: month-over-month sales growth percentage, company-wide and per employee |
-```
-
-و در انتهای پاراگراف مقدمه‌ی README، این جمله را اضافه کنید تا مشخص باشد این تمرین با بقیه فرق دارد:
-
-```markdown
-Exercise 09 goes a step further by first aggregating data with
-GROUP BY inside a CTE, then applying window functions on top of
-the aggregated result -- the pattern used in real sales and BI
-reports.
-```
