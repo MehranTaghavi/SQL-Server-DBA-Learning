@@ -8,39 +8,43 @@
 
 This repository is a living learning portfolio by **Mehran Taghavi Afkham**. It combines runnable T-SQL exercises, DBA notes, operational checklists, and end-to-end projects. Every topic is organized so that a learner can start with the README, run the examples in SQL Server Management Studio, and then extend them with their own experiments.
 
+## Reference material
+
+[00-Resources](./00-Resources) holds shared reference material used across more than one chapter (currently a personal T-SQL reference PDF cited by several `01-TSQL` exercises).
+
 ## Learning map
 
-| Chapter | Focus | Status |
-| --- | --- | --- |
-| [01-TSQL](./01-TSQL) | Querying and T-SQL problem solving (see breakdown below) | In progress |
-| [02-Database-Fundamentals](./02-Database-Fundamentals) | Relational design and data integrity | Roadmap |
-| [03-Backup-Restore](./03-Backup-Restore) | Recovery models and restore strategy | Roadmap |
-| [04-Security](./04-Security) | Principals, permissions, and auditing | Roadmap |
-| [05-SQL-Agent](./05-SQL-Agent) | Jobs, alerts, and automation | Roadmap |
-| [06-Monitoring](./06-Monitoring) | Health checks and operational visibility | Roadmap |
-| [07-Troubleshooting](./07-Troubleshooting) | A repeatable incident workflow | Roadmap |
-| [08-Performance-Tuning](./08-Performance-Tuning) | Plans, indexes, statistics, Query Store, and DMVs | Roadmap |
-| [09-High-Availability](./09-High-Availability) | Availability, failover, and disaster recovery | Roadmap |
-| [10-ETL-SSIS](./10-ETL-SSIS) | Reliable data movement and ETL design | Roadmap |
-| [11-SSDT](./11-SSDT) | Version-controlled database development | Roadmap |
-| [12-Projects](./12-Projects) | Portfolio projects that combine the skills | In progress |
+| Chapter                                               | Focus                                                    | Status      |
+| ----------------------------------------------------- | -------------------------------------------------------- | ----------- |
+| [01-TSQL](./01-TSQL)                                   | Querying and T-SQL problem solving (see breakdown below) | In progress |
+| [02-Database-Fundamentals](./02-Database-Fundamentals) | Relational design and data integrity                     | Roadmap     |
+| [03-Backup-Restore](./03-Backup-Restore)               | Recovery models and restore strategy                     | Roadmap     |
+| [04-Security](./04-Security)                           | Principals, permissions, and auditing                    | Roadmap     |
+| [05-SQL-Agent](./05-SQL-Agent)                         | Jobs, alerts, and automation                             | Roadmap     |
+| [06-Monitoring](./06-Monitoring)                       | Health checks and operational visibility                 | Roadmap     |
+| [07-Troubleshooting](./07-Troubleshooting)             | A repeatable incident workflow                           | Roadmap     |
+| [08-Performance-Tuning](./08-Performance-Tuning)       | Plans, indexes, statistics, Query Store, and DMVs        | Roadmap     |
+| [09-High-Availability](./09-High-Availability)         | Availability, failover, and disaster recovery            | Roadmap     |
+| [10-ETL-SSIS](./10-ETL-SSIS)                           | Reliable data movement and ETL design                    | Roadmap     |
+| [11-SSDT](./11-SSDT)                                   | Version-controlled database development                  | Roadmap     |
+| [12-Projects](./12-Projects)                           | Portfolio projects that combine the skills               | In progress |
 
 ### Inside 01-TSQL
 
 The T-SQL chapter goes beyond basic querying and covers concepts commonly asked about in
 data-analyst and junior-DBA interviews:
 
-| Subfolder | Advanced concepts covered |
-| --- | --- |
-| [01-Introduction](./01-TSQL/01-Introduction) | Schema/key fundamentals, logical query processing order, type conversion |
-| [02-Sort-and-Filter](./01-TSQL/02-Sort-and-Filter) | Filtering, pattern matching (`LIKE`), `TOP` / `TOP PERCENT` |
-| [03-JOIN](./01-TSQL/03-JOIN) | Inner, left, right, full outer, self, and cross joins |
-| [04-Subqueries](./01-TSQL/04-Subqueries) | Correlated subqueries, `EXISTS`/`NOT EXISTS`, `ANY`/`ALL`, `CASE` expressions, multi-step analytical queries |
-| [05-Functions-and-GroupBy](./01-TSQL/05-Functions-and-GroupBy) | Aggregate functions, `GROUP BY`, `HAVING` |
-| [06-Modify-Data](./01-TSQL/06-Modify-Data) | `INSERT`/`UPDATE`/`DELETE`, `SELECT INTO`, `MERGE`, staging workflows |
-| [07-CTE](./01-TSQL/07-CTE) | Common Table Expressions, recursive CTEs, pagination, employee-hierarchy queries |
-| [08-Window-Functions](./01-TSQL/08-Window-Functions) | `ROW_NUMBER`, `RANK`, `DENSE_RANK`, `LAG`/`LEAD`, running totals, `NTILE` |
-| [09-Stored-Procedures](./01-TSQL/09-Stored-Procedures) | Parameterized procedures, output parameters, safe update patterns |
+| Subfolder                                                     | Advanced concepts covered                                                                                             |
+| ------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------- |
+| [01-Introduction](./01-TSQL/01-Introduction)                   | Schema/key fundamentals, logical query processing order, type conversion                                              |
+| [02-Sort-and-Filter](./01-TSQL/02-Sort-and-Filter)             | Filtering, pattern matching (`LIKE`), `TOP` / `TOP PERCENT`                                                     |
+| [03-JOIN](./01-TSQL/03-JOIN)                                   | Inner, left, right, full outer, self, and cross joins                                                                 |
+| [04-Subqueries](./01-TSQL/04-Subqueries)                       | Correlated subqueries,`EXISTS`/`NOT EXISTS`, `ANY`/`ALL`, `CASE` expressions, multi-step analytical queries |
+| [05-Functions-and-GroupBy](./01-TSQL/05-Functions-and-GroupBy) | Aggregate functions,`GROUP BY`, `HAVING`                                                                          |
+| [06-Modify-Data](./01-TSQL/06-Modify-Data)                     | `INSERT`/`UPDATE`/`DELETE`, `SELECT INTO`, `MERGE`, staging workflows                                       |
+| [07-CTE](./01-TSQL/07-CTE)                                     | Common Table Expressions, recursive CTEs, pagination, employee-hierarchy queries                                      |
+| [08-Window-Functions](./01-TSQL/08-Window-Functions)           | `ROW_NUMBER`, `RANK`, `DENSE_RANK`, `LAG`/`LEAD`, running totals, `NTILE`                                 |
+| [09-Stored-Procedures](./01-TSQL/09-Stored-Procedures)         | Parameterized procedures, output parameters, safe update patterns                                                     |
 
 ## How to use this repository
 
