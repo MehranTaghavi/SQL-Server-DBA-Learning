@@ -11,17 +11,18 @@ exist.
 
 ## Exercises
 
-| File / Folder                              | Topic                                | What it covers                                                                                                                                                                                                                    |
-| ------------------------------------------ | ------------------------------------ | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `01-get-employees-by-department.sql`     | Basic procedure + optional parameter | A reusable procedure with one optional input parameter, returning either one department's employees or all of them                                                                                                                |
-| `02-add-employee-with-output.sql`        | Input parameters + OUTPUT parameter  | Inserting a new employee and returning its new`EmployeeID` to the caller without a separate SELECT                                                                                                                              |
-| `03-safe-update-salary.sql`              | TRY...CATCH + validation             | Safely updating an employee's salary, rejecting invalid values with a custom error instead of letting bad data through                                                                                                            |
-| `04-place-order-with-bonus-transaction/` | Explicit transactions + TRY...CATCH  | Placing an order and applying a salary bonus as a single atomic operation. Split into a procedure file plus one file per test scenario (successful call, invalid employee, invalid bonus percent) — see the folder's own README. |
+| File / Folder                              | Topic                                | What it covers                                                                                                                                                                                                                                                                |
+| ------------------------------------------ | ------------------------------------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `01-get-employees-by-department.sql`     | Basic procedure + optional parameter | A reusable procedure with one optional input parameter, returning either one department's employees or all of them                                                                                                                                                            |
+| `02-add-employee-with-output.sql`        | Input parameters + OUTPUT parameter  | Inserting a new employee and returning its new`EmployeeID` to the caller without a separate SELECT                                                                                                                                                                          |
+| `03-safe-update-salary.sql`              | TRY...CATCH + validation             | Safely updating an employee's salary, rejecting invalid values with a custom error instead of letting bad data through                                                                                                                                                        |
+| `04-place-order-with-bonus-transaction/` | Explicit transactions + TRY...CATCH  | Placing an order and applying a salary bonus as a single atomic operation. Split into a procedure file plus one file per test scenario (successful call, invalid employee, invalid bonus percent) — see the folder's own README.                                             |
+| `05-search-employees-dynamic-sort/`      | Dynamic SQL (`sp_executesql`)      | A search procedure with optional filters and a user-selectable sort column, built safely with parameterized filter values and a whitelisted +`QUOTENAME()`-wrapped sort column. Split into a procedure file plus one file per test scenario — see the folder's own README. |
 
 Each exercise file contains both the `CREATE PROCEDURE` statement and
-one or more `EXEC` calls demonstrating how to use it, except Exercise
-04, where the procedure and its test scenarios are split across
-separate files (see `04-place-order-with-bonus-transaction/README.md`).
+one or more `EXEC` calls demonstrating how to use it, except Exercises
+04 and 05, where the procedure and its test scenarios are split across
+separate files (see each folder's own README).
 
 ## Concept documentation
 
