@@ -1,17 +1,17 @@
-# ۰۱ - مقدمه‌ای بر Transact-SQL
+# 01 - Introduction to Transact-SQL
 
-این بخش با ماژول رسمی [Introduction to Transact-SQL](https://learn.microsoft.com/en-us/training/modules/introduction-to-transact-sql/) هماهنگ است.
+This section aligns with the official [Introduction to Transact-SQL](https://learn.microsoft.com/en-us/training/modules/introduction-to-transact-sql/) module.
 
-## مفاهیم اصلی
+## Core Concepts
 
-- **SQL و T-SQL:** SQL زبان استاندارد پرس‌وجو است؛ T-SQL گونهٔ توسعه‌یافتهٔ SQL Server است و کنترل جریان، متغیر، خطاگیری و رویه‌های ذخیره‌شده را نیز ارائه می‌کند.
-- **اعلانی بودن:** در SQL نتیجهٔ موردنظر را بیان می‌کنیم، نه الگوریتم گام‌به‌گام اجرای آن را.
-- **دادهٔ رابطه‌ای:** داده در جدول‌ها و رابطه‌ها نگهداری می‌شود. `PRIMARY KEY` هر ردیف را یکتا می‌کند و `FOREIGN KEY` یکپارچگی رابطه بین جدول‌ها را حفظ می‌کند.
-- **پردازش مجموعه‌ای:** عملیات روی مجموعه‌ای از ردیف‌ها انجام می‌شود، نه با حلقه برای هر ردیف؛ این روش معمولاً خواناتر و سریع‌تر است.
-- **Schema و نام کامل:** استفاده از نام‌هایی مانند `dbo.Employees` ابهام را کم می‌کند و به SQL Server برای resolve کردن شیء کمک می‌کند.
-- **دسته‌های دستور:** DML برای کار با داده (`SELECT`, `INSERT`, `UPDATE`, `DELETE`)، DDL برای تعریف ساختار (`CREATE`, `ALTER`, `DROP`) و DCL برای مجوزها (`GRANT`, `DENY`, `REVOKE`) است.
-- **ترتیب منطقی SELECT:** `FROM → WHERE → GROUP BY → HAVING → SELECT → ORDER BY`؛ این ترتیب با ترتیب نوشتن ظاهری عبارت یکسان نیست.
-- **نوع داده و تبدیل:** `CAST`/`TRY_CAST` و `CONVERT`/`TRY_CONVERT` تبدیل صریح انجام می‌دهند؛ `PARSE`/`TRY_PARSE` برای تبدیل مبتنی بر فرهنگ (culture) مناسب است.
-- **NULL:** برای آزمون از `IS NULL` و `IS NOT NULL`، برای جایگزین از `ISNULL` یا `COALESCE` و برای تبدیل مقدار به `NULL` در حالت برابر بودن از `NULLIF` استفاده می‌شود.
+- **SQL vs. T-SQL:** SQL is the standard querying language; T-SQL is SQL Server's extension that provides control-of-flow language, variables, error handling, and stored procedures.
+- **Declarative Nature:** In SQL, you describe the desired result, not the step-by-step algorithm to achieve it.
+- **Relational Data:** Data is stored in tables and relationships. A `PRIMARY KEY` uniquely identifies each row, and a `FOREIGN KEY` maintains referential integrity between tables.
+- **Set-Based Processing:** Operations are performed on a set of rows rather than looping through each row individually; this approach is usually more readable and faster.
+- **Schema and Fully Qualified Names:** Using two-part names like `dbo.Employees` reduces ambiguity and helps SQL Server resolve objects efficiently.
+- **Statement Categories:** DML for data manipulation (`SELECT`, `INSERT`, `UPDATE`, `DELETE`), DDL for data definition (`CREATE`, `ALTER`, `DROP`), and DCL for data control/permissions (`GRANT`, `DENY`, `REVOKE`).
+- **Logical Order of Operations in SELECT:** `FROM ← WHERE ← GROUP BY ← HAVING ← SELECT ← ORDER BY`; this logical processing order differs from the syntax order.
+- **Data Types and Conversions:** `CAST`/`TRY_CAST` and `CONVERT`/`TRY_CONVERT` are used for explicit conversions; `PARSE`/`TRY_PARSE` is suitable for culture-specific conversions.
+- **NULL Handling:** Use `IS NULL` and `IS NOT NULL` for checking, `ISNULL` or `COALESCE` for replacement, and `NULLIF` to return `NULL` if two expressions are equal.
 
-اسکریپت‌ها با جدول نمونهٔ `Employees` نوشته شده‌اند و در صورت نبود جدول، آن را در همان اسکریپت ایجاد می‌کنند.
+The scripts use a sample `Employees` table and will create it within the same script if it does not already exist.

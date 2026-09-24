@@ -1,21 +1,16 @@
-# ۰۱ - Query and modify data with Transact-SQL
+This chapter strictly follows the official Microsoft Learn path: [Query and modify data with Transact-SQL](https://learn.microsoft.com/en-us/training/paths/get-started-querying-with-transact-sql/).
 
-این فصل دقیقاً از مسیر رسمی مایکروسافت لرن [Query and modify data with Transact-SQL](https://learn.microsoft.com/en-us/training/paths/get-started-querying-with-transact-sql/) پیروی می‌کند.
+## Microsoft Learn Main Path
 
-## مسیر اصلی مایکروسافت لرن
+1. [01 - Introduction](./01-Introduction) — T-SQL Basics, Relational Data, Data Types, and NULLs
+2. [02 - Sort and Filter](./02-Sort-and-Filter) — `WHERE`, `ORDER BY`, `TOP`, and Combined Filters
+3. [03 - JOIN](./03-JOIN) — Joining Tables
+4. [04 - Subqueries](./04-Subqueries) — Subqueries and `EXISTS`
+5. [05 - Functions and GroupBy](./05-Functions-and-GroupBy) — Aggregate Functions, `GROUP BY`, and `HAVING`
+6. [06 - Modify Data](./06-Modify-Data) — INSERT, UPDATE, DELETE, and MERGE
 
-1. [۰۱ - Introduction](./01-Introduction) — مبانی T-SQL، دادهٔ رابطه‌ای، انواع داده و NULL
-2. [۰۲ - Sort and Filter](./02-Sort-and-Filter) — `WHERE`، `ORDER BY`، `TOP` و فیلترهای ترکیبی
-3. [۰۳ - JOIN](./03-JOIN) — اتصال جدول‌ها
-4. [۰۴ - Subqueries](./04-Subqueries) — زیرپرس‌وجوها و `EXISTS`
-5. [۰۵ - Functions and GroupBy](./05-Functions-and-GroupBy) — توابع تجمعی، `GROUP BY` و `HAVING`
-6. [۰۶ - Modify Data](./06-Modify-Data) — درج، تغییر، حذف و همگام‌سازی داده
+## Supplementary Topics (Beyond the Basic MS Learn Path)
 
-## مباحث تکمیلی (فراتر از مسیر پایه‌ی مایکروسافت لرن)
+## Combined Project
 
-- [۰۷ - CTE](./07-CTE)
-- [۰۸ - Window Functions](./08-Window-Functions)
-- [۰۹ - Stored Procedures](./09-Stored-Procedures)
-## پروژه‌ی ترکیبی
-
-- [۱۲-Projects/online-store-analysis](../12-Projects/online-store-analysis) — یک پروژه‌ی کوچک و مستقل که مفاهیم `JOIN`، `Subqueries`، `CTE` و `Window Functions` (بخش‌های ۰۳، ۰۴، ۰۷ و ۰۸) را در قالب یک دیتابیس نمونه‌ی فروشگاه آنلاین و چند پرس‌وجوی تحلیلیِ کسب‌وکاری با هم ترکیب می‌کند.
+- [12-Projects/online-store-analysis](../12-Projects/online-store-analysis) — A small, independent project that combines `JOIN`, `Subqueries`, `CTE`, and `Window Functions` (sections 03, 04, 07, and 08) within a sample online store database using business analysis queries.

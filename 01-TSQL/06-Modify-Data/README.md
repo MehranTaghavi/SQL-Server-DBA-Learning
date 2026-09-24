@@ -1,11 +1,11 @@
-# ۰۶ - تغییر داده با T-SQL
+# 06 - Modify Data with T-SQL
 
-این بخش مطابق ماژول رسمی [Modify data with T-SQL](https://learn.microsoft.com/en-us/training/modules/modify-data-with-transact-sql/) است.
+This section follows the official [Modify data with T-SQL](https://learn.microsoft.com/en-us/training/modules/modify-data-with-transact-sql/) module.
 
-- `INSERT VALUES` ردیف‌های مشخص را درج می‌کند؛ `INSERT SELECT` نتیجهٔ یک پرس‌وجو را درج می‌کند و `SELECT INTO` جدول جدید را از نتیجه می‌سازد.
-- `IDENTITY` مقدار افزایشی محلی جدول و `SEQUENCE` شیء مستقل قابل استفاده در چند جدول است.
-- `UPDATE` داده را تغییر می‌دهد و `UPDATE ... FROM` امکان اتصال به منبع دیگر را فراهم می‌کند.
-- `DELETE` ردیف‌ها را حذف می‌کند؛ `TRUNCATE TABLE` همهٔ ردیف‌ها را سریع‌تر حذف می‌کند و لاگ و محدودیت‌های آن متفاوت است.
-- `MERGE` برای همگام‌سازی درج و به‌روزرسانی بین منبع و مقصد به‌کار می‌رود؛ در سامانه‌های حساس، بررسی دقیق هم‌زمانی و محدودیت‌ها ضروری است.
+- `INSERT VALUES` inserts specific rows; `INSERT SELECT` inserts the result of a query, and `SELECT INTO` creates a new table from the query result.
+- `IDENTITY` is a table-specific auto-incrementing value, whereas `SEQUENCE` is an independent object that can be shared across multiple tables.
+- `UPDATE` modifies data, and `UPDATE ... FROM` allows updating based on a join to another source.
+- `DELETE` removes rows; `TRUNCATE TABLE` deletes all rows much faster with different logging and constraint implications.
+- `MERGE` is used to synchronize inserts and updates between a source and a target; in critical systems, careful consideration of concurrency and constraints is necessary.
 
-تمام تمرین‌ها از جدول‌های `#temp` یا جدول‌های staging با پیشوند `Modify` استفاده می‌کنند و به `dbo.Employees` موجود دست نمی‌زنند.
+All exercises use `#temp` tables or staging tables with a `Modify` prefix and do not alter the existing `dbo.Employees` table.
