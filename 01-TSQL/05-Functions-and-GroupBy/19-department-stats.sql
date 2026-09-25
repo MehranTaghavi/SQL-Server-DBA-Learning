@@ -1,16 +1,16 @@
 -- =============================================
--- تمرین ۱۹: آمار کامل هر بخش
+-- Exercise 19: Full statistics for each department
 -- =============================================
--- هدف: نمایش همه آمارهای هر بخش با نام‌های مناسب
+-- Goal: show every statistic for each department with clear column names
 
 SELECT 
-    Department as بخش,
-    COUNT(*) as تعداد_کارمندان,
-    AVG(Salary) as میانگین_حقوق,
-    MAX(Salary) as بیشترین_حقوق,
-    MIN(Salary) as کمترین_حقوق,
-    SUM(Salary) as مجموع_حقوق,
-    MAX(Salary) - MIN(Salary) as تفاوت_حقوق
+    Department AS DepartmentName,
+    COUNT(*) AS EmployeeCount,
+    AVG(Salary) AS AvgSalary,
+    MAX(Salary) AS MaxSalary,
+    MIN(Salary) AS MinSalary,
+    SUM(Salary) AS TotalSalary,
+    MAX(Salary) - MIN(Salary) AS SalaryRange
 FROM Employees
 GROUP BY Department
-ORDER BY میانگین_حقوق DESC;
+ORDER BY AvgSalary DESC;
