@@ -10,12 +10,12 @@ Pay attention to unmatched rows and to the difference between putting a predicat
 
 | File | Topic | What it covers |
 |------|-------|-----------------|
-| `01_inner_join.sql` | INNER JOIN | Matching rows across two related tables (`Employees`, `Departments`) |
-| `02_left_join.sql` | LEFT JOIN | Keeping unmatched rows from the left table — finding employees with no department and departments with no employees |
-| `03_self_join.sql` | SELF JOIN | Joining a table to itself to map employees to their managers |
-| `04_right_join.sql` | RIGHT JOIN | Keeping unmatched rows from the right table — finding departments with no employees |
-| `05_full_outer_join.sql` | FULL OUTER JOIN | Keeping unmatched rows from BOTH sides at once, and comparing row counts with INNER JOIN |
-| `06_cross_join.sql` | CROSS JOIN | Producing every possible combination of rows from two tables (the Cartesian product) |
+| `01-inner-join.sql` | INNER JOIN | Matching rows across two related tables (`Employees`, `Departments`) |
+| `02-left-join.sql` | LEFT JOIN | Keeping unmatched rows from the left table — finding employees with no department and departments with no employees |
+| `03-self-join.sql` | SELF JOIN | Joining a table to itself to map employees to their managers |
+| `04-right-join.sql` | RIGHT JOIN | Keeping unmatched rows from the right table — finding departments with no employees |
+| `05-full-outer-join.sql` | FULL OUTER JOIN | Keeping unmatched rows from BOTH sides at once, and comparing row counts with INNER JOIN |
+| `06-cross-join.sql` | CROSS JOIN | Producing every possible combination of rows from two tables (the Cartesian product) |
 
 ## How to run
 
