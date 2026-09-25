@@ -1,21 +1,21 @@
 -- =============================================
--- تمرین ۲۱: بخش‌هایی با پراکندگی حقوق بالا
+-- Exercise 21: Departments with a wide salary spread
 -- =============================================
--- هدف: نمایش بخش‌هایی که:
--- 1. حداقل ۲ کارمند دارند
--- 2. فاصله بین بیشترین و کمترین حقوق آن‌ها بیشتر از ۱۵۰۰ است
--- 3. میانگین حقوق آن‌ها کمتر از ۸۰۰۰ نیست
+-- Goal: show departments that:
+-- 1. Have at least 2 employees
+-- 2. Have a gap between their highest and lowest salary greater than 1500
+-- 3. Have an average salary of at least 8000
 
 SELECT 
-    Department as بخش,
-    COUNT(*) as تعداد_کارمندان,
-    MIN(Salary) as کمترین_حقوق,
-    MAX(Salary) as بیشترین_حقوق,
-    MAX(Salary) - MIN(Salary) as دامنه_حقوق,
-    AVG(Salary) as میانگین_حقوق
+    Department AS DepartmentName,
+    COUNT(*) AS EmployeeCount,
+    MIN(Salary) AS MinSalary,
+    MAX(Salary) AS MaxSalary,
+    MAX(Salary) - MIN(Salary) AS SalaryRange,
+    AVG(Salary) AS AvgSalary
 FROM Employees
 GROUP BY Department
 HAVING COUNT(*) >= 2
     AND MAX(Salary) - MIN(Salary) > 1500
     AND AVG(Salary) >= 8000
-ORDER BY دامنه_حقوق DESC;
+ORDER BY SalaryRange DESC;
