@@ -18,9 +18,9 @@ subqueries, CTEs, and window functions.
 ## How to run
 
 1. Requires SQL Server 2019+ (SSMS or Azure Data Studio).
-2. Run [`01_schema_and_data.sql`](01_schema_and_data.sql) once — it creates a
+2. Run [`01-schema-and-data.sql`](01-schema-and-data.sql) once — it creates a
    disposable `OnlineStoreSample` database, tables, and sample data.
-3. Run [`02_analysis_queries.sql`](02_analysis_queries.sql) against the same
+3. Run [`02-analysis-queries.sql`](02-analysis-queries.sql) against the same
    database to see all four analysis queries.
 
 Each script is self-contained and re-runnable — no external files or
