@@ -1,28 +1,28 @@
 -- ================================================================
--- 📘 تمرین ۱۹-۳: محاسبه پاداش با CASE WHEN
+-- 📘 Exercise 19-3: Calculating bonuses with CASE WHEN
 -- ================================================================
 -- 
--- 🎯 هدف تمرین:
--- محاسبه پاداش سالانه کارمندان بر اساس قوانین شرکت
+-- 🎯 Goal:
+-- Calculate each employee's annual bonus according to company rules
 --
--- 📚 مفاهیم کلیدی:
--- 1. CASE WHEN با محاسبات ریاضی
--- 2. ضریب پاداش بر اساس دسته حقوق
--- 3. نمایش درصد پاداش به همراه مبلغ
+-- 📚 Key concepts:
+-- 1. CASE WHEN combined with arithmetic
+-- 2. A bonus rate driven by salary tier
+-- 3. Showing the bonus percentage alongside the amount
 --
--- 📋 قوانین پاداش شرکت:
--- 🌟 حقوق بالا (≥ ۸۰۰۰):  پاداش ۲۰٪
--- 📊 حقوق متوسط (۶۰۰۰ تا ۸۰۰۰): پاداش ۱۰٪
--- 📉 حقوق پایین (< ۶۰۰۰):  پاداش ۵٪
+-- 📋 Company bonus rules:
+-- 🌟 High salary (≥ 8000):     20% bonus
+-- 📊 Medium salary (6000-8000): 10% bonus
+-- 📉 Low salary (< 6000):       5% bonus
 --
--- 🧮 فرمول محاسبه:
+-- 🧮 Formula:
 -- Bonus = Salary * BonusRate
 --
--- 🔍 نحوه کار:
--- 1. CASE WHEN دسته حقوق را مشخص می‌کند
--- 2. ضریب پاداش مناسب انتخاب می‌شود
--- 3. مبلغ پاداش با ضرب حقوق در ضریب محاسبه می‌شود
--- 4. درصد پاداش نیز به صورت جداگانه نمایش داده می‌شود
+-- 🔍 How it works:
+-- 1. CASE WHEN determines the salary tier
+-- 2. The matching bonus rate is selected
+-- 3. The bonus amount is calculated by multiplying salary by the rate
+-- 4. The bonus percentage is also shown separately
 -- ================================================================
 
 SELECT 
@@ -30,38 +30,38 @@ SELECT
     LastName,
     Department,
     Salary,
-    -- 📊 محاسبه مبلغ پاداش
+    -- 📊 Calculate the bonus amount
     CASE 
-        WHEN Salary > 8000 THEN Salary * 0.20    -- ۲۰٪ پاداش
-        WHEN Salary BETWEEN 6000 AND 8000 THEN Salary * 0.10  -- ۱۰٪ پاداش
-        ELSE Salary * 0.05                      -- ۵٪ پاداش (کمتر از ۶۰۰۰)
+        WHEN Salary > 8000 THEN Salary * 0.20    -- 20% bonus
+        WHEN Salary BETWEEN 6000 AND 8000 THEN Salary * 0.10  -- 10% bonus
+        ELSE Salary * 0.05                       -- 5% bonus (below 6000)
     END as Bonus,
-    -- 📊 نمایش درصد پاداش
+    -- 📊 Show the bonus percentage
     CASE 
-        WHEN Salary > 8000 THEN '۲۰٪'
-        WHEN Salary BETWEEN 6000 AND 8000 THEN '۱۰٪'
-        ELSE '۵٪'
+        WHEN Salary > 8000 THEN '20%'
+        WHEN Salary BETWEEN 6000 AND 8000 THEN '10%'
+        ELSE '5%'
     END as BonusRate
 FROM Employees
 ORDER BY Salary DESC;
 
 -- ================================================================
--- 📊 خروجی مورد انتظار:
+-- 📊 Expected output:
 -- ┌───────────┬───────────┬────────────┬────────┬─────────┬───────────┐
 -- │ FirstName │ LastName  │ Department │ Salary │  Bonus  │ BonusRate │
 -- ├───────────┼───────────┼────────────┼────────┼─────────┼───────────┤
--- │ Reza      │ Karimi    │ Sales      │ 9100   │ 1820.00 │ ۲۰٪       │
--- │ Ali       │ Ahmadi    │ IT         │ 8500   │ 1700.00 │ ۲۰٪       │
--- │ Neda      │ Jafari    │ HR         │ 8300   │ 1660.00 │ ۲۰٪       │
--- │ Zahra     │ Alavi     │ IT         │ 7800   │ 780.00  │ ۱۰٪       │
--- │ Sara      │ Mohammadi │ IT         │ 7200   │ 720.00  │ ۱۰٪       │
--- │ Hossein   │ Razavi    │ HR         │ 6200   │ 620.00  │ ۱۰٪       │
--- │ Mina      │ Hasani    │ Sales      │ 5800   │ 290.00  │ ۵٪        │
--- │ Mohammad  │ Moradi    │ Sales      │ 5400   │ 270.00  │ ۵٪        │
+-- │ Reza      │ Karimi    │ Sales      │ 9100   │ 1820.00 │ 20%       │
+-- │ Ali       │ Ahmadi    │ IT         │ 8500   │ 1700.00 │ 20%       │
+-- │ Neda      │ Jafari    │ HR         │ 8300   │ 1660.00 │ 20%       │
+-- │ Zahra     │ Alavi     │ IT         │ 7800   │ 780.00  │ 10%       │
+-- │ Sara      │ Mohammadi │ IT         │ 7200   │ 720.00  │ 10%       │
+-- │ Hossein   │ Razavi    │ HR         │ 6200   │ 620.00  │ 10%       │
+-- │ Mina      │ Hasani    │ Sales      │ 5800   │ 290.00  │ 5%        │
+-- │ Mohammad  │ Moradi    │ Sales      │ 5400   │ 270.00  │ 5%        │
 -- └───────────┴───────────┴────────────┴────────┴─────────┴───────────┘
 --
--- 💡 نکات آموزشی:
--- 1. CASE WHEN می‌تواند شامل محاسبات ریاضی باشد
--- 2. می‌توان از CASE WHEN چندین بار در یک کوئری استفاده کرد
--- 3. برای خوانایی بهتر، می‌توان ستون‌های محاسباتی را جداگانه نام‌گذاری کرد
+-- 💡 Learning notes:
+-- 1. CASE WHEN can include arithmetic expressions
+-- 2. CASE WHEN can be used multiple times in the same query
+-- 3. Naming computed columns separately improves readability
 -- ================================================================
