@@ -1,30 +1,30 @@
 -- ================================================================
--- 📘 تمرین ۱۹-۱: دسته‌بندی حقوق با CASE WHEN
+-- 📘 Exercise 19-1: Salary categorization with CASE WHEN
 -- ================================================================
 -- 
--- 🎯 هدف تمرین:
--- دسته‌بندی کارمندان بر اساس میزان حقوق به ۴ گروه مختلف
+-- 🎯 Goal:
+-- Categorize employees into 4 groups based on salary level
 --
--- 📚 مفاهیم کلیدی:
--- 1. CASE WHEN با چندین شرط
--- 2. دسته‌بندی داده‌های عددی به گروه‌های کیفی
--- 3. استفاده از عملگرهای مقایسه‌ای در CASE
+-- 📚 Key concepts:
+-- 1. CASE WHEN with multiple conditions
+-- 2. Bucketing numeric data into qualitative groups
+-- 3. Using comparison operators inside CASE
 --
--- 📋 قوانین دسته‌بندی:
--- 🌟 حقوق بالا:       Salary >= 8000
--- 📊 حقوق متوسط:     6000 <= Salary < 8000
--- 📉 حقوق پایین:      4000 <= Salary < 6000
--- ⚠️ حقوق خیلی پایین: Salary < 4000
+-- 📋 Category rules:
+-- 🌟 High salary:        Salary >= 8000
+-- 📊 Medium salary:      6000 <= Salary < 8000
+-- 📉 Low salary:         4000 <= Salary < 6000
+-- ⚠️ Very low salary:    Salary < 4000
 --
--- 🔍 نحوه کار:
--- 1. کوئری تمام کارمندان را می‌خواند
--- 2. CASE WHEN مقدار Salary را بررسی می‌کند
--- 3. اولین شرطی که درست باشد، مقدار مربوطه را برمی‌گرداند
--- 4. اگر هیچ شرطی درست نباشد، ELSE اجرا می‌شود
+-- 🔍 How it works:
+-- 1. The query reads all employees
+-- 2. CASE WHEN checks the Salary value
+-- 3. The first TRUE condition determines the returned value
+-- 4. If no condition matches, ELSE runs
 --
--- 📌 نکته مهم در ترتیب شرط‌ها:
--- شرط‌ها باید از خاص به عام نوشته شوند
--- اگر اول شرط "Salary >= 4000" را بنویسیم، همه حقوق‌های بالاتر را هم می‌گیرد!
+-- 📌 Important note on condition order:
+-- Conditions must go from specific to general.
+-- If "Salary >= 4000" were written first, it would also catch every higher salary!
 -- ================================================================
 
 SELECT 
@@ -32,34 +32,34 @@ SELECT
     LastName,
     Department,
     Salary,
-    -- 📊 دسته‌بندی حقوق با CASE WHEN
+    -- 📊 Categorize salary with CASE WHEN
     CASE 
-        WHEN Salary >= 8000 THEN 'حقوق بالا 🌟'      -- بالاترین دسته
-        WHEN Salary >= 6000 AND Salary < 8000 THEN 'حقوق متوسط 📊'  -- دسته متوسط
-        WHEN Salary >= 4000 AND Salary < 6000 THEN 'حقوق پایین 📉'   -- دسته پایین
-        ELSE 'حقوق خیلی پایین ⚠️'                    -- اگر کمتر از ۴۰۰۰ باشد
+        WHEN Salary >= 8000 THEN 'High Salary 🌟'          -- top category
+        WHEN Salary >= 6000 AND Salary < 8000 THEN 'Medium Salary 📊'  -- medium category
+        WHEN Salary >= 4000 AND Salary < 6000 THEN 'Low Salary 📉'     -- low category
+        ELSE 'Very Low Salary ⚠️'                          -- if below 4000
     END as SalaryCategory
 FROM Employees
 ORDER BY Salary DESC;
 
 -- ================================================================
--- 📊 خروجی مورد انتظار:
+-- 📊 Expected output:
 -- ┌───────────┬───────────┬────────────┬────────┬──────────────────┐
 -- │ FirstName │ LastName  │ Department │ Salary │  SalaryCategory  │
 -- ├───────────┼───────────┼────────────┼────────┼──────────────────┤
--- │ Reza      │ Karimi    │ Sales      │ 9100   │ حقوق بالا 🌟    │
--- │ Ali       │ Ahmadi    │ IT         │ 8500   │ حقوق بالا 🌟    │
--- │ Neda      │ Jafari    │ HR         │ 8300   │ حقوق بالا 🌟    │
--- │ Zahra     │ Alavi     │ IT         │ 7800   │ حقوق متوسط 📊   │
--- │ Sara      │ Mohammadi │ IT         │ 7200   │ حقوق متوسط 📊   │
--- │ Hossein   │ Razavi    │ HR         │ 6200   │ حقوق متوسط 📊   │
--- │ Mina      │ Hasani    │ Sales      │ 5800   │ حقوق پایین 📉   │
--- │ Mohammad  │ Moradi    │ Sales      │ 5400   │ حقوق پایین 📉   │
+-- │ Reza      │ Karimi    │ Sales      │ 9100   │ High Salary 🌟   │
+-- │ Ali       │ Ahmadi    │ IT         │ 8500   │ High Salary 🌟   │
+-- │ Neda      │ Jafari    │ HR         │ 8300   │ High Salary 🌟   │
+-- │ Zahra     │ Alavi     │ IT         │ 7800   │ Medium Salary 📊 │
+-- │ Sara      │ Mohammadi │ IT         │ 7200   │ Medium Salary 📊 │
+-- │ Hossein   │ Razavi    │ HR         │ 6200   │ Medium Salary 📊 │
+-- │ Mina      │ Hasani    │ Sales      │ 5800   │ Low Salary 📉    │
+-- │ Mohammad  │ Moradi    │ Sales      │ 5400   │ Low Salary 📉    │
 -- └───────────┴───────────┴────────────┴────────┴──────────────────┘
 --
--- 💡 تفسیر نتایج:
--- - ۳ نفر حقوق بالا دارند (Reza, Ali, Neda)
--- - ۳ نفر حقوق متوسط دارند (Zahra, Sara, Hossein)
--- - ۲ نفر حقوق پایین دارند (Mina, Mohammad)
--- - هیچکس حقوق خیلی پایین ندارد
+-- 💡 Interpreting the results:
+-- - 3 employees fall into High Salary (Reza, Ali, Neda)
+-- - 3 employees fall into Medium Salary (Zahra, Sara, Hossein)
+-- - 2 employees fall into Low Salary (Mina, Mohammad)
+-- - No one falls into Very Low Salary
 -- ================================================================

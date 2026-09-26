@@ -1,70 +1,70 @@
 -- ================================================================
--- 📘 تمرین ۱۹-۵: ترکیب CASE WHEN با توابع تجمعی
+-- 📘 Exercise 19-5: Combining CASE WHEN with aggregate functions
 -- ================================================================
 -- 
--- 🎯 هدف تمرین:
--- گزارش تعداد کارمندان در هر دسته حقوقی برای هر بخش
--- با استفاده از ترکیب COUNT و CASE WHEN
+-- 🎯 Goal:
+-- Report the number of employees in each salary tier, per department,
+-- using COUNT combined with CASE WHEN
 --
--- 📚 مفاهیم کلیدی:
--- 1. COUNT(CASE WHEN ... THEN 1 END) برای شمارش شرطی
--- 2. محاسبه درصد با استفاده از COUNT و ROUND
--- 3. گزارش‌گیری تحلیلی با استفاده از CASE WHEN
+-- 📚 Key concepts:
+-- 1. COUNT(CASE WHEN ... THEN 1 END) for conditional counting
+-- 2. Calculating a percentage using COUNT and ROUND
+-- 3. Analytical reporting with CASE WHEN
 
 
--- 1️⃣ قانون COUNT: COUNT فقط مقادیر غیر NULL را می‌شمارد
+-- 1️⃣ COUNT rule: COUNT only counts non-NULL values
 -- 
--- 2️⃣ نحوه کار:
---    - وقتی شرط درست است → 1 برمی‌گرداند (غیر NULL) → COUNT می‌شمارد ✅
---    - وقتی شرط غلط است → NULL برمی‌گرداند → COUNT نمی‌شمارد ❌
+-- 2️⃣ How it works:
+--    - When the condition is TRUE  → returns 1 (non-NULL) → COUNT counts it ✅
+--    - When the condition is FALSE → returns NULL          → COUNT skips it ❌
 -- 
--- 3️⃣ معادل ریاضی:
---    COUNT(CASE WHEN شرط THEN 1 END) = تعداد سطرهایی که شرط در آنها درست است
+-- 3️⃣ Mathematical equivalent:
+--    COUNT(CASE WHEN condition THEN 1 END) = number of rows where the condition is TRUE
 -- 
--- 4️⃣ چرا `1` نه `0` یا چیز دیگر؟
---    - `1` یک عدد ثابت و سبک است
---    - هر عدد غیر NULL دیگری هم کار می‌کند (مثل 5, 100, یا حتی 'YES')
---    - اما `1` خواناتر و استانداردتر است
+-- 4️⃣ Why `1` and not `0` or something else?
+--    - `1` is a lightweight constant
+--    - any non-NULL value would work (e.g. 5, 100, or even 'YES')
+--    - but `1` is the most readable and conventional choice
 -- 
--- 5️⃣ اگر از `0` استفاده کنیم چه می‌شود؟
---    - 0 هم غیر NULL است پس کار می‌کند
---    - اما 1 مرسوم‌تر است چون نماد "تعداد" است
+-- 5️⃣ What if we used `0` instead?
+--    - `0` is also non-NULL, so it would still work
+--    - but `1` is more conventional since it symbolizes "a count of one"
 --
--- 📌 نکته: این تکنیک "Conditional Counting" نام دارد
+-- 📌 Note: this technique is called "Conditional Counting"
 --
--- 📋 دسته‌بندی حقوق:
--- حقوق بالا:    Salary > 8000
--- حقوق متوسط:  6000 <= Salary <= 8000
--- حقوق پایین:   Salary < 6000
+-- 📋 Salary tiers:
+-- High salary:    Salary > 8000
+-- Medium salary:  6000 <= Salary <= 8000
+-- Low salary:     Salary < 6000
 --
--- 🔍 نحوه کار:
--- 1. COUNT(CASE WHEN Salary > 8000 THEN 1 END) فقط کارمندانی که شرط را دارند می‌شمارد
--- 2. COUNT(*) تعداد کل کارمندان بخش را محاسبه می‌کند
--- 3. درصد با فرمول (تعداد شرطی / تعداد کل) * ۱۰۰ محاسبه می‌شود
+-- 🔍 How it works:
+-- 1. COUNT(CASE WHEN Salary > 8000 THEN 1 END) counts only employees who satisfy the condition
+-- 2. COUNT(*) computes the department's total employee count
+-- 3. The percentage is computed as (conditional count / total count) * 100
 -- ================================================================
 
 SELECT 
     Department,
-    -- 📊 تعداد کل کارمندان بخش
+    -- 📊 Total employees in the department
     COUNT(*) as TotalEmployees,
-    -- 📊 تعداد کارمندانی که حقوق بالای ۸۰۰۰ دارند
+    -- 📊 Employees earning above 8000
     COUNT(CASE WHEN Salary > 8000 THEN 1 END) as HighSalary,
-    -- 📊 تعداد کارمندانی که حقوق بین ۶۰۰۰ و ۸۰۰۰ دارند
+    -- 📊 Employees earning between 6000 and 8000
     COUNT(CASE WHEN Salary BETWEEN 6000 AND 8000 THEN 1 END) as MediumSalary,
-    -- 📊 تعداد کارمندانی که حقوق زیر ۶۰۰۰ دارند
+    -- 📊 Employees earning below 6000
     COUNT(CASE WHEN Salary < 6000 THEN 1 END) as LowSalary,
-    -- 📊 درصد کارمندان با حقوق بالا
+    -- 📊 Percentage of employees in the high-salary tier
     ROUND(COUNT(CASE WHEN Salary > 8000 THEN 1 END) * 100.0 / COUNT(*), 2) as HighPercent,
-    -- 📊 درصد کارمندان با حقوق متوسط
+    -- 📊 Percentage of employees in the medium-salary tier
     ROUND(COUNT(CASE WHEN Salary BETWEEN 6000 AND 8000 THEN 1 END) * 100.0 / COUNT(*), 2) as MediumPercent,
-    -- 📊 درصد کارمندان با حقوق پایین
+    -- 📊 Percentage of employees in the low-salary tier
     ROUND(COUNT(CASE WHEN Salary < 6000 THEN 1 END) * 100.0 / COUNT(*), 2) as LowPercent
 FROM Employees
 GROUP BY Department
 ORDER BY Department;
 
 -- ================================================================
--- 📊 خروجی مورد انتظار:
+-- 📊 Expected output:
 -- ┌────────────┬───────────────┬────────────┬─────────────┬───────────┬─────────────┬───────────────┬────────────┐
 -- │ Department │ TotalEmployees│ HighSalary │ MediumSalary│ LowSalary │ HighPercent │ MediumPercent │ LowPercent │
 -- ├────────────┼───────────────┼────────────┼─────────────┼───────────┼─────────────┼───────────────┼────────────┤
@@ -73,13 +73,13 @@ ORDER BY Department;
 -- │ Sales      │ 3             │ 1          │ 0           │ 2         │ 33.33       │ 0.00          │ 66.67      │
 -- └────────────┴───────────────┴────────────┴─────────────┴───────────┴─────────────┴───────────────┴────────────┘
 --
--- 💡 تفسیر نتایج:
--- 🔹 بخش IT: ۶۶.۶۷٪ حقوق بالا دارند (۲ نفر از ۳ نفر)
--- 🔹 بخش HR: ۵۰٪ حقوق بالا دارند (۱ نفر از ۲ نفر)
--- 🔹 بخش Sales: ۶۶.۶۷٪ حقوق پایین دارند (۲ نفر از ۳ نفر)
+-- 💡 Interpreting the results:
+-- 🔹 IT department: 66.67% are in the high-salary tier (2 of 3 employees)
+-- 🔹 HR department: 50% are in the high-salary tier (1 of 2 employees)
+-- 🔹 Sales department: 66.67% are in the low-salary tier (2 of 3 employees)
 --
--- 💡 کاربردهای این روش در دنیای واقعی:
--- 1. گزارش‌های مدیریتی و داشبوردها
--- 2. تحلیل توزیع حقوق در سازمان
--- 3. شناسایی بخش‌های با عملکرد بالا
+-- 💡 Real-world uses:
+-- 1. Management reports and dashboards
+-- 2. Analyzing salary distribution across the organization
+-- 3. Identifying high-performing departments
 -- ================================================================

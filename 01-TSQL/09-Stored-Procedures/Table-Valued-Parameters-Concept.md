@@ -1,4 +1,3 @@
-
 # Table-Valued Parameters (TVP) in T-SQL
 
 ## Abstract

@@ -1,25 +1,25 @@
 -- ================================================================
--- 📘 تمرین ۱۹-۴: گروه‌بندی سال استخدام با CASE WHEN
+-- 📘 Exercise 19-4: Grouping by hire year with CASE WHEN
 -- ================================================================
 -- 
--- 🎯 هدف تمرین:
--- دسته‌بندی کارمندان بر اساس سال استخدام با استفاده از CASE WHEN
+-- 🎯 Goal:
+-- Categorize employees by hire year using CASE WHEN
 --
--- 📚 مفاهیم کلیدی:
--- 1. استفاده از تابع YEAR() برای استخراج سال از تاریخ
--- 2. CASE WHEN با توابع تاریخ
--- 3. گروه‌بندی زمانی داده‌ها
+-- 📚 Key concepts:
+-- 1. Using the YEAR() function to extract the year from a date
+-- 2. CASE WHEN combined with date functions
+-- 3. Grouping data by time period
 --
--- 📋 سال‌های استخدام:
--- 🏛️ ۲۰۲۰: سال اولیه استخدام‌ها
--- 📅 ۲۰۲۱: سال دوم
--- 🆕 ۲۰۲۲: سال سوم
--- 🌱 ۲۰۲۳: جدیدترین استخدام‌ها
+-- 📋 Hire years:
+-- 🏛️ 2020: earliest hires
+-- 📅 2021: second year
+-- 🆕 2022: third year
+-- 🌱 2023: newest hires
 --
--- 🔍 نحوه کار:
--- 1. تابع YEAR(HireDate) سال استخدام را استخراج می‌کند
--- 2. CASE WHEN سال را با مقادیر مشخص مقایسه می‌کند
--- 3. دسته‌بندی مناسب به هر کارمند اختصاص داده می‌شود
+-- 🔍 How it works:
+-- 1. YEAR(HireDate) extracts the hire year
+-- 2. CASE WHEN compares that year against specific values
+-- 3. Each employee is assigned the matching category
 -- ================================================================
 
 SELECT 
@@ -27,34 +27,34 @@ SELECT
     LastName,
     Department,
     HireDate,
-    -- 📊 دسته‌بندی بر اساس سال استخدام
+    -- 📊 Categorize by hire year
     CASE 
-        WHEN YEAR(HireDate) = 2020 THEN 'استخدام‌های ۲۰۲۰ 🏛️'
-        WHEN YEAR(HireDate) = 2021 THEN 'استخدام‌های ۲۰۲۱ 📅'
-        WHEN YEAR(HireDate) = 2022 THEN 'استخدام‌های ۲۰۲۲ 🆕'
-        WHEN YEAR(HireDate) = 2023 THEN 'استخدام‌های ۲۰۲۳ 🌱'
-        ELSE 'سایر'  -- اگر سال دیگری باشد
+        WHEN YEAR(HireDate) = 2020 THEN 'Hired in 2020 🏛️'
+        WHEN YEAR(HireDate) = 2021 THEN 'Hired in 2021 📅'
+        WHEN YEAR(HireDate) = 2022 THEN 'Hired in 2022 🆕'
+        WHEN YEAR(HireDate) = 2023 THEN 'Hired in 2023 🌱'
+        ELSE 'Other'  -- any other year
     END as HireYearGroup
 FROM Employees
 ORDER BY HireDate;
 
 -- ================================================================
--- 📊 خروجی مورد انتظار:
--- ┌───────────┬───────────┬────────────┬────────────┬─────────────────────┐
--- │ FirstName │ LastName  │ Department │  HireDate  │   HireYearGroup    │
--- ├───────────┼───────────┼────────────┼────────────┼─────────────────────┤
--- │ Reza      │ Karimi    │ Sales      │ 2020-06-10 │ استخدام‌های ۲۰۲۰ 🏛️│
--- │ Neda      │ Jafari    │ HR         │ 2020-12-01 │ استخدام‌های ۲۰۲۰ 🏛️│
--- │ Ali       │ Ahmadi    │ IT         │ 2021-01-15 │ استخدام‌های ۲۰۲۱ 📅│
--- │ Zahra     │ Alavi     │ IT         │ 2021-11-01 │ استخدام‌های ۲۰۲۱ 📅│
--- │ Sara      │ Mohammadi │ IT         │ 2022-03-20 │ استخدام‌های ۲۰۲۲ 🆕│
--- │ Hossein   │ Razavi    │ HR         │ 2022-08-12 │ استخدام‌های ۲۰۲۲ 🆕│
--- │ Mina      │ Hasani    │ Sales      │ 2023-01-05 │ استخدام‌های ۲۰۲۳ 🌱│
--- │ Mohammad  │ Moradi    │ Sales      │ 2023-04-18 │ استخدام‌های ۲۰۲۳ 🌱│
--- └───────────┴───────────┴────────────┴────────────┴─────────────────────┘
+-- 📊 Expected output:
+-- ┌───────────┬───────────┬────────────┬────────────┬─────────────────┐
+-- │ FirstName │ LastName  │ Department │  HireDate  │  HireYearGroup  │
+-- ├───────────┼───────────┼────────────┼────────────┼─────────────────┤
+-- │ Reza      │ Karimi    │ Sales      │ 2020-06-10 │ Hired in 2020 🏛️│
+-- │ Neda      │ Jafari    │ HR         │ 2020-12-01 │ Hired in 2020 🏛️│
+-- │ Ali       │ Ahmadi    │ IT         │ 2021-01-15 │ Hired in 2021 📅│
+-- │ Zahra     │ Alavi     │ IT         │ 2021-11-01 │ Hired in 2021 📅│
+-- │ Sara      │ Mohammadi │ IT         │ 2022-03-20 │ Hired in 2022 🆕│
+-- │ Hossein   │ Razavi    │ HR         │ 2022-08-12 │ Hired in 2022 🆕│
+-- │ Mina      │ Hasani    │ Sales      │ 2023-01-05 │ Hired in 2023 🌱│
+-- │ Mohammad  │ Moradi    │ Sales      │ 2023-04-18 │ Hired in 2023 🌱│
+-- └───────────┴───────────┴────────────┴────────────┴─────────────────┘
 --
--- 💡 کاربردهای این روش:
--- 1. تحلیل روند استخدام در سال‌های مختلف
--- 2. شناسایی دوره‌های پراستخدام
--- 3. مقایسه عملکرد بخش‌ها در سال‌های مختلف
+-- 💡 Uses of this technique:
+-- 1. Analyzing hiring trends across years
+-- 2. Identifying peak-hiring periods
+-- 3. Comparing department performance across years
 -- ================================================================
