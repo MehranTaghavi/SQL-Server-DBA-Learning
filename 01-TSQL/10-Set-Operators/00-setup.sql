@@ -2,9 +2,6 @@
    Setup: Create tables and insert sample data for Set Operators
    ============================================================ */
 
-DROP TABLE IF EXISTS Employees_HQ;
-DROP TABLE IF EXISTS Employees_Branch;
-
 CREATE TABLE Employees_HQ (
     EmployeeID INT,
     FirstName VARCHAR(50),
