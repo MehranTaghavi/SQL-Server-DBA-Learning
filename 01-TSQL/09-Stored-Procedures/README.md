@@ -1,9 +1,8 @@
 # Stored Procedures
 
-**Status: in progress.** Covers optional parameters, OUTPUT
-parameters, error handling, transactions, dynamic SQL, and
-table-valued parameters so far. `RETURN` with a status code is still
-pending before this chapter is considered complete.
+**Status: complete.** Covers optional parameters, OUTPUT parameters,
+error handling, transactions, dynamic SQL, table-valued parameters,
+and RETURN status codes.
 
 These standalone exercises cover writing, parameterizing, and safely
 executing stored procedures in T-SQL — a topic beyond the base
@@ -24,11 +23,12 @@ exist.
 | `04-place-order-with-bonus-transaction/` | Explicit transactions + TRY...CATCH  | Placing an order and applying a salary bonus as a single atomic operation. Split into a procedure file plus one file per test scenario — see the folder's own README.                                                                                                        |
 | `05-search-employees-dynamic-sort/`      | Dynamic SQL (`sp_executesql`)        | A search procedure with optional filters and a user-selectable sort column, built safely with parameterized filter values and a whitelisted + `QUOTENAME()`-wrapped sort column. Split into a procedure file plus one file per test scenario — see the folder's own README. |
 | `06-give-bonus-to-multiple-employees/`   | Table-Valued Parameters (TVP)        | Applying a bonus to an entire list of employees in one atomic call, using a `READONLY` TVP and an all-or-nothing validation rule over the whole set. Split into a table-type file, a procedure file, and one file per test scenario — see the folder's own README.          |
+| `07-return-status-code/`                 | RETURN status codes                  | Giving an employee a raise, using `THROW` for a genuinely invalid call versus a `RETURN` status code for a normal, expected outcome (employee not found) that isn't an error. Split into a procedure file plus one file per test scenario — see the folder's own README.    |
 
 Each exercise file contains both the `CREATE PROCEDURE` statement and
 one or more `EXEC` calls demonstrating how to use it, except Exercises
-04, 05, and 06, where the procedure and its test scenarios are split
-across separate files (see each folder's own README).
+04, 05, 06, and 07, where the procedure and its test scenarios are
+split across separate files (see each folder's own README).
 
 ## Concept documentation
 
@@ -45,8 +45,13 @@ across separate files (see each folder's own README).
   06: what problem TVPs solve, how user-defined table types and
   `READONLY` parameters work, their constraints, and performance
   characteristics compared to row-by-row calls and delimited strings.
+- `Return-Status-Code-Concept.md` — the theory behind Exercise 07:
+  `RETURN` vs. `OUTPUT` parameters, `RETURN` vs. `THROW`, and when a
+  status code is the right signaling mechanism versus raising an
+  error.
 
-None of these three topics is covered by the project's primary T-SQL
+None of these four topics is covered by the project's primary T-SQL
 reference document — it either explicitly flags transaction
 management as material for a separate chapter, or simply does not
-mention Dynamic SQL / TVPs at all — these three files fill that gap.
+mention Dynamic SQL, TVPs, or RETURN at all — these four files fill
+that gap.
