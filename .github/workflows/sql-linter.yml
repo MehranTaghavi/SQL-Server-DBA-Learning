@@ -1,0 +1,28 @@
+name: T-SQL Code Quality Check
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+jobs:
+  lint-sql:
+    name: Check SQL Syntax
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v3
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.10'
+
+      - name: Install SQLFluff
+        run: pip install sqlfluff
+
+      - name: Run SQL Linter on 01-TSQL folder
+        # این دستور تمام فایل‌های پوشه 01-TSQL را با استاندارد T-SQL بررسی می‌کند
+        run: sqlfluff lint 01-TSQL/ --dialect tsql

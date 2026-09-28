@@ -11,7 +11,6 @@
 -- 2. Calculating a percentage using COUNT and ROUND
 -- 3. Analytical reporting with CASE WHEN
 
-
 -- 1️⃣ COUNT rule: COUNT only counts non-NULL values
 -- 
 -- 2️⃣ How it works:
