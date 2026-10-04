@@ -32,6 +32,9 @@ found.
 | `03-updatable-view-basic.sql` | `UPDATE` and `INSERT` through a single-table view, showing SQL Server translates the write straight through to the real table. |
 | `04-check-option.sql` | `WITH CHECK OPTION`: by default a row can be updated through a filtered view so it no longer matches the view's own `WHERE` clause (it just disappears from the view); `WITH CHECK OPTION` rejects that write outright instead. |
 | `05-non-updatable-view.sql` | A multi-table (JOIN) view where a single `UPDATE` touches columns from two different base tables at once — deliberately triggers the "not updatable" error, for contrast with `03`. |
+| `06-schemabinding-basic.sql` | `WITH SCHEMABINDING`: the two syntax requirements it imposes (two-part table names, explicit column list), and that a schemabound view still queries exactly like any other view. |
+| `07-schemabinding-protection.sql` | Proves the protection is real and column-level: dropping a column the view references is rejected outright; dropping an unrelated column on the same table still works fine. |
+| `08-non-schemabound-comparison.sql` | The contrast case, in a fully self-contained throwaway table: without `SCHEMABINDING`, dropping a column the view depends on succeeds immediately, and the view only breaks later, the next time it's queried. |
 
 ## Updatable views: the short version
 
@@ -43,12 +46,20 @@ time. `WITH CHECK OPTION` is a closely related safeguard for filtered
 views: without it, a write can silently push a row outside the view's
 own `WHERE` clause; with it, that same write is rejected instead.
 
-This module is intentionally scoped to updatable views and `WITH
-CHECK OPTION`. Other advanced topics (`WITH SCHEMABINDING`, indexed
-views) are not covered here.
+## WITH SCHEMABINDING: the short version
+
+A plain view has no protection: if someone drops or changes a column
+it depends on, the view just silently breaks, and nobody finds out
+until the next time it's queried. `WITH SCHEMABINDING` locks the view
+to the exact columns it references — any `ALTER`/`DROP` that would
+break it is rejected immediately, at the moment it's attempted, not
+discovered later. It requires two-part table names (`dbo.Employees`,
+not `Employees`) and an explicit column list (no `SELECT *`).
+`SCHEMABINDING` is also a prerequisite for creating an index on a
+view (an "indexed view"), which is not covered in this module.
 
 ## How to run
 
-Run `00-setup.sql` once, then the rest in order (`01` through `05`) —
+Run `00-setup.sql` once, then the rest in order (`01` through `08`) —
 `03` and `04` modify data that later files assume is in a particular
-state.
+state. `08` is fully self-contained and doesn't depend on the others.
