@@ -35,6 +35,10 @@ found.
 | `06-schemabinding-basic.sql` | `WITH SCHEMABINDING`: the two syntax requirements it imposes (two-part table names, explicit column list), and that a schemabound view still queries exactly like any other view. |
 | `07-schemabinding-protection.sql` | Proves the protection is real and column-level: dropping a column the view references is rejected outright; dropping an unrelated column on the same table still works fine. |
 | `08-non-schemabound-comparison.sql` | The contrast case, in a fully self-contained throwaway table: without `SCHEMABINDING`, dropping a column the view depends on succeeds immediately, and the view only breaks later, the next time it's queried. |
+| `09-indexed-view-foundation.sql` | Starts indexed views: builds a schemabound aggregate view with the required `SET` options and `COUNT_BIG(*)`, ready to be indexed. |
+| `10-create-indexed-view.sql` | Creates the required first index (`UNIQUE CLUSTERED`) on the view and verifies it from `sys.indexes`. |
+| `11-indexed-view-maintenance.sql` | Demonstrates automatic indexed-view maintenance on base-table `INSERT`/`UPDATE`, then uses `ROLLBACK` to keep the dataset unchanged. |
+| `12-indexed-view-count-big-rule.sql` | Intentionally violates the aggregate rule (missing `COUNT_BIG`) to show the expected indexed-view creation error. |
 
 ## Updatable views: the short version
 
@@ -56,10 +60,20 @@ break it is rejected immediately, at the moment it's attempted, not
 discovered later. It requires two-part table names (`dbo.Employees`,
 not `Employees`) and an explicit column list (no `SELECT *`).
 `SCHEMABINDING` is also a prerequisite for creating an index on a
-view (an "indexed view"), which is not covered in this module.
+view (an "indexed view"), covered in files `09` through `12`.
+
+## Indexed views: the short version
+
+An indexed view is a view with a **unique clustered index** on it.
+That index materializes the view's result physically, which can help
+for repeated expensive aggregations. But it has strict rules:
+`SCHEMABINDING` is mandatory, required `SET` options must be enabled,
+and grouped aggregate views must include `COUNT_BIG(*)`.
 
 ## How to run
 
-Run `00-setup.sql` once, then the rest in order (`01` through `08`) —
+Run `00-setup.sql` once, then the rest in order (`01` through `12`) —
 `03` and `04` modify data that later files assume is in a particular
 state. `08` is fully self-contained and doesn't depend on the others.
+For indexed views, run `09` before `10`, then `11` and `12`; `11` uses
+a transaction with `ROLLBACK`, so it leaves no permanent data change.
