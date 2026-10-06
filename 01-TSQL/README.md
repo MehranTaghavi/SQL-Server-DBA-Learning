@@ -1,22 +1,28 @@
-# 01 - Query and modify data with Transact-SQL
+# 01 - Query and Modify Data with Transact-SQL
 
-This chapter follows the official Microsoft Learn path [Query and modify data with Transact-SQL](https://learn.microsoft.com/en-us/training/paths/get-started-querying-with-transact-sql/) exactly.
+This chapter follows the official [Microsoft Learn path: Query and modify data with Transact-SQL](https://learn.microsoft.com/en-us/training/paths/get-started-querying-with-transact-sql/).
 
-## Core Microsoft Learn path
+## Core Microsoft Learn Path
 
-1. [01 - Introduction](./01-Introduction) — T-SQL fundamentals, relational data, data types, and NULL
+The following sections follow the official Microsoft Learn path in order:
+
+1. [01 - Introduction](./01-Introduction) — T-SQL fundamentals, relational data, data types, and `NULL`
 2. [02 - Sort and Filter](./02-Sort-and-Filter) — `WHERE`, `ORDER BY`, `TOP`, and combined filters
-3. [03 - JOIN](./03-JOIN) — combining tables
+3. [03 - JOIN](./03-JOIN) — combining data from multiple tables
 4. [04 - Subqueries](./04-Subqueries) — subqueries and `EXISTS`
-5. [05 - Functions and GroupBy](./05-Functions-and-GroupBy) — aggregate functions, `GROUP BY`, and `HAVING`
-6. [06 - Modify Data](./06-Modify-Data) — inserting, changing, deleting, and syncing data
+5. [05 - Functions and GROUP BY](./05-Functions-and-GroupBy) — aggregate functions, `GROUP BY`, and `HAVING`
+6. [06 - Modify Data](./06-Modify-Data) — inserting, updating, deleting, and synchronizing data
 
-## Supplementary topics (beyond the base Microsoft Learn path)
+## Supplementary Topics
+
+The following sections extend beyond the base Microsoft Learn path and cover additional T-SQL concepts:
 
 - [07 - CTE](./07-CTE)
 - [08 - Window Functions](./08-Window-Functions)
 - [09 - Stored Procedures](./09-Stored-Procedures)
+- [10 - Set Operators](./10-Set-Operators) — `UNION`, `UNION ALL`, `INTERSECT`, and `EXCEPT`
+- [11 - Views](./11-Views) — basic views, updatable views, `WITH CHECK OPTION`, `WITH SCHEMABINDING`, and indexed views
 
-## Combined project
+## Combined Project
 
-- [12-Projects/online-store-analysis](../12-Projects/online-store-analysis) — a small, self-contained project that combines `JOIN`, `Subqueries`, `CTE`, and `Window Functions` (sections 03, 04, 07, and 08) around a sample online-store database and a set of business-analysis queries.
+- [12 - Projects / Online Store Analysis](../12-Projects/online-store-analysis) — a small, self-contained project that combines `JOIN`, subqueries, CTEs, and window functions (Sections 03, 04, 07, and 08) using a sample online-store database and a set of business-analysis queries.
