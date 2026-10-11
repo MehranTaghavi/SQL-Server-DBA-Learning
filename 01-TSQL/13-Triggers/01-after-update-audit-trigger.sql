@@ -27,7 +27,7 @@ BEGIN
 
     -- Set-based: handles 1 row or 1,000 rows in a single statement.
     INSERT INTO dbo.SalaryAudit (EmployeeID, OldSalary, NewSalary)
-    SELECT i.EmployeeID, d.Salary, i.Salary
+    SELECT i.EmployeeID, d.Salary AS OldSalary, i.Salary AS NewSalary
     FROM inserted i
     JOIN deleted  d ON d.EmployeeID = i.EmployeeID
     WHERE i.Salary <> d.Salary;   -- ignore rows whose salary didn't really change
