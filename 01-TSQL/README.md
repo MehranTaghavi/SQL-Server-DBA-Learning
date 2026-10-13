@@ -20,6 +20,7 @@ This chapter follows the official Microsoft Learn path [Query and modify data wi
 - [11 - Views](./11-Views) — basic views, updatable views, `WITH CHECK OPTION`, `WITH SCHEMABINDING`, and indexed views
 - [12 - User-Defined Functions](./12-User-Defined-Functions) — scalar functions, inline and multi-statement table-valued functions, and `CROSS`/`OUTER APPLY`
 - [13 - Triggers](./13-Triggers) — `AFTER` and `INSTEAD OF` triggers, the `inserted`/`deleted` tables, and the multi-row pitfall
+- [14 - Pivot and Unpivot](./14-Pivot-Unpivot) — `PIVOT`, `UNPIVOT`, and conditional aggregation as an alternative
 
 ## Combined project
 
