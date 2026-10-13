@@ -18,8 +18,13 @@ FROM sys.triggers t
 WHERE t.parent_class_desc = 'OBJECT_OR_COLUMN'
 ORDER BY TableName, TriggerName;
 
+-- Note: ALTER TABLE ... DISABLE/ENABLE TRIGGER is equivalent to the
+-- standalone DISABLE TRIGGER / ENABLE TRIGGER ... ON ... statements; the
+-- ALTER TABLE form is used here because it is the form the sqlfluff
+-- T-SQL parser used by this repo's CI can parse.
+
 -- 2) Disable the audit trigger: an update no longer gets logged.
-DISABLE TRIGGER dbo.trg_Employees_SalaryAudit ON dbo.Employees;
+ALTER TABLE dbo.Employees DISABLE TRIGGER trg_Employees_SalaryAudit;
 
 DECLARE @before INT = (SELECT COUNT(*) FROM SalaryAudit);
 BEGIN TRANSACTION;
@@ -29,7 +34,7 @@ BEGIN TRANSACTION;
 ROLLBACK TRANSACTION;
 
 -- 3) Enable it again: the same update is logged once more.
-ENABLE TRIGGER dbo.trg_Employees_SalaryAudit ON dbo.Employees;
+ALTER TABLE dbo.Employees ENABLE TRIGGER trg_Employees_SalaryAudit;
 
 SET @before = (SELECT COUNT(*) FROM SalaryAudit);
 BEGIN TRANSACTION;
