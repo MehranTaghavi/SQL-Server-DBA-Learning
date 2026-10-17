@@ -16,7 +16,7 @@ This repository is a living learning portfolio by **Mehran Taghavi Afkham**. It 
 
 | Chapter                                               | Focus                                                    | Status      |
 | ----------------------------------------------------- | -------------------------------------------------------- | ----------- |
-| [01-TSQL](./01-TSQL)                                   | Querying and T-SQL problem solving (see breakdown below) | In progress |
+| [01-TSQL](./01-TSQL)                                   | Querying and T-SQL problem solving (see breakdown below) | Complete    |
 | [02-Database-Fundamentals](./02-Database-Fundamentals) | Relational design and data integrity                     | Roadmap     |
 | [03-Backup-Restore](./03-Backup-Restore)               | Recovery models and restore strategy                     | Roadmap     |
 | [04-Security](./04-Security)                           | Principals, permissions, and auditing                    | Roadmap     |
@@ -44,7 +44,13 @@ data-analyst and junior-DBA interviews:
 | [06-Modify-Data](./01-TSQL/06-Modify-Data)                     | `INSERT`/`UPDATE`/`DELETE`, `SELECT INTO`, `MERGE`, staging workflows                                       |
 | [07-CTE](./01-TSQL/07-CTE)                                     | Common Table Expressions, recursive CTEs, pagination, employee-hierarchy queries                                      |
 | [08-Window-Functions](./01-TSQL/08-Window-Functions)           | `ROW_NUMBER`, `RANK`, `DENSE_RANK`, `LAG`/`LEAD`, running totals, `NTILE`                                 |
-| [09-Stored-Procedures](./01-TSQL/09-Stored-Procedures)         | Parameterized procedures, output parameters, safe update patterns                                                     |
+| [09-Stored-Procedures](./01-TSQL/09-Stored-Procedures)         | Parameterized procedures, `OUTPUT` parameters, `TRY...CATCH` and transactions, dynamic SQL (`sp_executesql`), table-valued parameters, `RETURN` status codes |
+| [10-Set-Operators](./01-TSQL/10-Set-Operators)                 | `UNION`, `UNION ALL`, `INTERSECT`, `EXCEPT`, and combining several set operators in one query |
+| [11-Views](./01-TSQL/11-Views)                                 | Views, updatable views, `WITH CHECK OPTION`, `WITH SCHEMABINDING`, indexed views |
+| [12-User-Defined-Functions](./01-TSQL/12-User-Defined-Functions) | Scalar, inline and multi-statement table-valued functions, `CROSS`/`OUTER APPLY` |
+| [13-Triggers](./01-TSQL/13-Triggers)                           | `AFTER` and `INSTEAD OF` triggers, the `inserted`/`deleted` tables, the multi-row pitfall |
+| [14-Pivot-Unpivot](./01-TSQL/14-Pivot-Unpivot)                 | `PIVOT`, `UNPIVOT`, conditional aggregation as an alternative |
+| [15-Temp-Tables](./01-TSQL/15-Temp-Tables)                     | Local and global temp tables, scope, constraints and indexes, staging patterns, temp table vs table variable |
 
 ## How to use this repository
 
